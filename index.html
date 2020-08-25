@@ -1,0 +1,173 @@
+<html>
+   <head>
+       <title>Vaishnavi Manikonda</title>
+       <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+       <link href = "resumeStyle.css" type = "text/css" rel = "stylesheet">
+       <script type="application/javascript" src="resume.js"></script>
+       <link rel="icon" href="Images/icon.png" sizes="2000x1000">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   </head>
+<body>
+    <div class = "picture">
+        <div class="top-container">
+            <div class="circle"></div>
+            <img  class="portrait" src="Images/portrait.png">
+            <h1 class="title">Vaishnavi Manikonda</h1>
+            <div class="container">
+                <span class="typed-text"></span>
+                <span class="cursor">&nbsp;</span>
+            </div>
+        </div>
+        <div class="rectangle"></div>
+    </div>
+    
+    <div class="header" id="myHeader">
+        <div class="navbar">
+            <a href="#aboutme">About Me</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact Me</a>
+        </div>
+    </div>
+    <div id = "aboutme"></div>
+    <div class="maintext">
+        <div class = "box purple boxtext">
+            <h2>About Me</h2>
+        Hello! I am a Computer Science student interested in software development. I interned at Code The Way this summer, where I, along with a team, made the nonprofit organization "The Gathering," a volunteer, volunteer group, volunteer event, and meal site ASP.net website. 
+        </div>
+        <div id = "projects"></div>
+        <div class = "box purple boxtext">
+            <h2>Projects</h2>
+            Here are some of the projects that I've made. There aren't a lot now, but I'll keep on adding more!
+            <br><br>
+            <table>
+                <tr class = "boxes">
+                  <td>
+                    <div class = "project">
+                        <h3>Arduino Motion Detector</h3> 
+                    <br>
+                    Beeps a melody and changes the color of a led based on how close an individual is.
+                    <br><h4>
+                        Languages: Arduino</h4>
+                    </div>
+                  </td>
+                  <td>
+                        <div class = "project">
+                            <h3>Card Deck Dealer</h3>
+                <br>
+                Deals cards based on number of people inputted after shuffling deck. 
+                <br><h4>
+                            Languages: HTML, CSS, Javascript</h4>
+            </div> 
+                  </td>
+                  <td>
+                        <div class = "project">
+                            <h3>Java Paddleball Game</h3>
+                <br>
+                Classic paddle ball game with constantly color changing ball for a fun look.
+                <br><h4>
+                            Languages: Java, Java Swing</h4>
+            </div> 
+                  </td>
+                </tr>
+                <tr class = "boxes">
+                    <td>
+                        <div class = "project">
+                        <h3>Movie Database</h3>
+                <br>
+                Database lets you add, delete, view  movies and search by genre and title.
+                <br><h4>
+                            Languages: .Net, C#, Asp.net MVC framework</h4></div>
+                    </td>
+                    <td>
+                        <div class = "project">
+                        <h3>This Website</h3>
+                <br>
+                Created to market me and showcase my projects and/or interests!
+                <br><h4>
+                            Languages: HTML, CSS, Javascript</h4></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id = "skills"></div>
+        <div class = "box purple boxtext">
+            <h2 >Skills</h2>
+            <img  class = "net" src = "Images/aspnet.png">
+            <img  class = "git" src = "Images/git.png">
+            <img  class = "c" src = "Images/c.png">
+            <img class = "css" src = "Images/css.png">
+            <img class = "java" src = "Images/java.png">
+        </div>
+        <div class = "box purple boxtext" id="contact">
+            <h2>Contact Me</h2>
+            Please keep in touch! Reach out to me if you found anything on this page interesting, or if you want to know anything else about me. I check my email most frequently.
+            <br><br>
+            <div class="icons boxes">
+             <a   href="https:www.linkedin.com/in/vaishnavi-manikonda" target = "_blank" class="fa fa-linkedin fa-2x"></a>
+            <a href="https:www.github.com/vaishnavi-manikonda" target = "_blank" class="fa fa-github fa-2x"></a>
+            <a href="mailto:manikon2@uwm.edu" class="fa fa-envelope fa-2x"></a>
+            </div>
+            
+        </div>
+        <br><br>
+        <footer><small>&copy; Copyright 2020, Vaishnavi Manikonda</small></footer>
+        
+    </div>
+    <script>
+        window.onscroll = function() {stickyOrNot()};
+        var header = document.getElementById("myHeader");
+        var sticky = header.offsetTop;
+
+        function stickyOrNot() {
+            if ((window.pageYOffset-80) > sticky) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+        const typedTextSpan = document.querySelector(".typed-text");
+const cursorSpan = document.querySelector(".cursor");
+
+const textArray = ["I'm a software engineer", "I'm currently a student at UWM", "I'm a bookworm", "I'm a lifelong learner", "I'm from Waukesha, WI", ];
+const typingDelay = 200;
+const erasingDelay = 100;
+const newTextDelay = 2000; // Delay between current and next text
+let textArrayIndex = 0;
+let charIndex = 0;
+
+function type() {
+  if (charIndex < textArray[textArrayIndex].length) {
+    if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+    typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(type, typingDelay);
+  } 
+  else {
+    cursorSpan.classList.remove("typing");
+  	setTimeout(erase, newTextDelay);
+  }
+}
+
+function erase() {
+	if (charIndex > 0) {
+    if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+    typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+    charIndex--;
+    setTimeout(erase, erasingDelay);
+  } 
+  else {
+    cursorSpan.classList.remove("typing");
+    textArrayIndex++;
+    if(textArrayIndex>=textArray.length) textArrayIndex=0;
+    setTimeout(type, typingDelay + 1100);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() { // On DOM Load initiate the effect
+  if(textArray.length) setTimeout(type, newTextDelay + 250);
+});
+    </script>
+</body>
+</html>
+
